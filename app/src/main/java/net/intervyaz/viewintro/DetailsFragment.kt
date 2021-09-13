@@ -11,6 +11,8 @@ import net.intervyaz.viewintro.databinding.DetailsFragmentBinding
 class DetailsFragment() : Fragment(R.layout.details_fragment) {
 	private lateinit var binding: DetailsFragmentBinding
 
+	private val args: DetailsFragmentArgs by navArgs()
+
 	override fun onCreateView(
 		inflater: LayoutInflater,
 		container: ViewGroup?,
@@ -18,5 +20,10 @@ class DetailsFragment() : Fragment(R.layout.details_fragment) {
 	): View? {
 		binding = DetailsFragmentBinding.inflate(inflater, container, false)
 		return binding.root
+	}
+
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		binding.text.text = args.ticketId.toString()
 	}
 }

@@ -6,86 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/splash_screen"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/brige"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
-        android:text="San Francisco"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btn_checklist"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btn_share"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_margin="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_share"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btn_map"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_margin="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_map"
-        app:layout_constraintEnd_toStartOf="@id/btn_share"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_checklist"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginVertical="8dp"
-        android:backgroundTint="@android:color/transparent"
-        android:drawableLeft="@drawable/ic_checklist"
-        android:scaleType="fitCenter"
-        android:text="checklist"
-        app:layout_constraintBottom_toBottomOf="@id/splash_screen"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_arrow_right"
-        android:drawableTint="@color/black"
-        android:padding="16dp"
-        android:text="Hong Kong to San Francisco"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/splash_screen" />
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/route"
-        tools:itemCount="2"
-        tools:listitem="@layout/ticket_item" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:navGraph="@navigation/tickets_graph" />
 </androidx.constraintlayout.widget.ConstraintLayout>

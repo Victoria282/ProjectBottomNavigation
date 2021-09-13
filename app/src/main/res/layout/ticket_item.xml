@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="#ECEAEA"
+    android:id="@+id/ticketCard"
     android:padding="8dp">
 
     <ImageView
@@ -28,6 +29,7 @@
         tools:text="AA8929" />
 
     <TextView
+        android:id="@+id/flightDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBaseline_toBaselineOf="@id/ticket_number"
