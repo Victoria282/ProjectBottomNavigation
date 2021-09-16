@@ -4,11 +4,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/menu"
         android:label="ProjectBottomMenu"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/menu"
         android:supportsRtl="true"
         android:theme="@style/Theme.ViewIntro">
+        <service
+            android:name=".service.music"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
