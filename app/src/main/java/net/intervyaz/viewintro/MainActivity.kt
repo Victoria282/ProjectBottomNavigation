@@ -23,12 +23,10 @@ class MainActivity : AppCompatActivity() {
         //тулбар
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment
         val navController = navHostFragment.navController
-        var appBarConfiguration = AppBarConfiguration(navController.graph)
-        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-
-        appBarConfiguration = AppBarConfiguration(setOf(
+        val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.homeFragment,
             R.id.settingsFragment))
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
     }
 }

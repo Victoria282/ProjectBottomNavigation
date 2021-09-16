@@ -34,10 +34,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings){
     ): View? {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
+        binding.switchMusic.isChecked = false
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         loadMusicSettings()
         // Обработка нажатия включения музыки
         binding.switchMusic.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
@@ -47,6 +47,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings){
                 Toast.makeText(context, "Музыка включена", Toast.LENGTH_SHORT).show()
             }
             else {
+                save()
                 context?.stopService(Intent(context, Music::class.java))
                 Toast.makeText(context, "Музыка выключена", Toast.LENGTH_SHORT).show()
             }
@@ -79,11 +80,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings){
     }
 
     private fun save() {
-        val musicSet : Boolean = binding.switchMusic.isChecked
         val sharedPref: SharedPreferences = (context?.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: "empty") as SharedPreferences
         val editor = sharedPref.edit()
         editor.apply() {
-            putBoolean("boolean_key", musicSet).apply()
+            putBoolean("boolean_key", binding.switchMusic.isChecked).apply()
         }
     }
 
