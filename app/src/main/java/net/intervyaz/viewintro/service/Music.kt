@@ -1,4 +1,4 @@
-package net.intervyaz.viewintro
+package net.intervyaz.viewintro.service
 
 import android.app.Service
 import android.content.ContentValues

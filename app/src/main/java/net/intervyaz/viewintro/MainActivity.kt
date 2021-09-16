@@ -30,6 +30,5 @@ class MainActivity : AppCompatActivity() {
             R.id.homeFragment,
             R.id.settingsFragment))
         binding.navView.setupWithNavController(navController)
-
     }
 }

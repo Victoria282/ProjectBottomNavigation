@@ -44,7 +44,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), TicketsAdapter.TicketClic
             requireContext(), RecyclerView.VERTICAL, false)
 
         binding.btnMap.setOnClickListener {
-            val action = HomeFragmentDirections.toDetails(2)
+            val action = HomeFragmentDirections.toDetails(555)
             findNavController().navigate(action)
         }
 

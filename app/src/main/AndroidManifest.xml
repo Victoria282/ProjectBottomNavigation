@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViewIntro">
         <service
-            android:name=".service.music"
+            android:name=".service.Music"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+
+        </service>
 
         <activity
             android:name=".MainActivity"

@@ -1,7 +1,7 @@
 package net.intervyaz.viewintro.fragments
 
-import android.app.Service
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,8 +13,17 @@ import net.intervyaz.viewintro.R
 import net.intervyaz.viewintro.databinding.FragmentSettingsBinding
 import android.widget.Toast
 import android.widget.CompoundButton
-import net.intervyaz.viewintro.MainActivity
-import net.intervyaz.viewintro.Music
+import net.intervyaz.viewintro.service.Music
+import android.content.SharedPreferences
+import android.widget.RadioButton
+
+import android.content.Context.MODE_PRIVATE
+
+
+
+
+
+
 
 class SettingsFragment : Fragment(R.layout.fragment_settings){
     private lateinit var binding: FragmentSettingsBinding
@@ -29,14 +38,16 @@ class SettingsFragment : Fragment(R.layout.fragment_settings){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadMusicSettings()
         // Обработка нажатия включения музыки
         binding.switchMusic.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                //context?.startService(Intent(context, Music::class.java))
+                save()
+                context?.startService(Intent(context, Music::class.java))
                 Toast.makeText(context, "Музыка включена", Toast.LENGTH_SHORT).show()
             }
             else {
-                //context?.stopService(Intent(context, Music::class.java))
+                context?.stopService(Intent(context, Music::class.java))
                 Toast.makeText(context, "Музыка выключена", Toast.LENGTH_SHORT).show()
             }
         });
@@ -60,4 +71,21 @@ class SettingsFragment : Fragment(R.layout.fragment_settings){
             }
         });
     }
+
+    fun loadMusicSettings() {
+        val sharedPref: SharedPreferences = (context?.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: "empty") as SharedPreferences
+        val savedStr = sharedPref.getBoolean("boolean_key", false)
+        binding.switchMusic.isChecked = savedStr
+    }
+
+    private fun save() {
+        val musicSet : Boolean = binding.switchMusic.isChecked
+        val sharedPref: SharedPreferences = (context?.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: "empty") as SharedPreferences
+        val editor = sharedPref.edit()
+        editor.apply() {
+            putBoolean("boolean_key", musicSet).apply()
+        }
+    }
+
+
 }
