@@ -1,4 +1,4 @@
-package net.intervyaz.viewintro
+package net.intervyaz.viewintro.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import net.intervyaz.viewintro.R
+import net.intervyaz.viewintro.adapter.TicketsAdapter
 import net.intervyaz.viewintro.databinding.FragmentHomeBinding
-import net.intervyaz.viewintro.databinding.MainFragmentBinding
+import net.intervyaz.viewintro.fakeTickets
 
 class HomeFragment : Fragment(R.layout.fragment_home), TicketsAdapter.TicketClickListener {
 

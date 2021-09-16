@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="net.intervyaz.viewintro.HomeFragment"
-        android:label="Имя из графа"
+        android:name="net.intervyaz.viewintro.fragments.HomeFragment"
+        android:label="Home Fragment"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/toDetails"
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="net.intervyaz.viewintro.DetailsFragment"
+        android:name="net.intervyaz.viewintro.fragments.DetailsFragment"
         android:label="Details Fragment"
         tools:layout="@layout/details_fragment">
         <argument
@@ -25,4 +25,9 @@
             app:argType="integer"
             app:nullable="false" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="net.intervyaz.viewintro.fragments.SettingsFragment"
+        android:label="Settings Fragment"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
