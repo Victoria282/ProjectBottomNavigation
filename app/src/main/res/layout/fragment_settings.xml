@@ -34,6 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
+            android:drawableLeft="@drawable/ic_music"
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,6 +69,7 @@
         tools:layout_editor_absoluteX="45dp">
 
         <TextView
+            android:drawableLeft="@drawable/ic_text_format"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,6 +104,7 @@
         tools:layout_editor_absoluteX="16dp">
 
         <TextView
+            android:drawableLeft="@drawable/ic_dark"
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
